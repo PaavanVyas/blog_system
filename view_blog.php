@@ -223,7 +223,6 @@ echo $content;
                 </form>
             </div>
             </div>
-            <h4>HEllo this is in new-branch</h4>
             <?php
                 }
             ?>
