@@ -137,7 +137,7 @@ echo $content;
 <div class="container border div-design-comment">
             <h4>Comments</h4>
             
-            <div class="container mt-3 comment-border">  
+            
             <?php
                 $stmt_comment = $conn->prepare("SELECT * FROM comments_data JOIN users ON comments_data.user_id = users.user_id WHERE blog_id = ?");
                 $stmt_comment->bind_param("s", $blog_id);
@@ -148,10 +148,11 @@ echo $content;
                     while ($row = $result->fetch_assoc()) {
                         $comment_id = $row["comment_id"];
             ?>
-                  
-                <div class="mt-2 border border-dark">
-                        <label><b>@<?php echo $row["username"];?></b></label><br/>
-                
+            <div class="container mt-3 comment-border">        
+                <div>
+                        <label><b>@<?php echo $row["username"];?></b></label>
+                </div>
+                <div>
                     <label class="mb-1 mt-1"><?php echo $row["comment_content"]; ?></label>
 
                 </div>
@@ -163,20 +164,17 @@ echo $content;
                     $result_reply = $stmt_reply->get_result();
                     if($result_reply->num_rows>0){
                 ?>
-                <div class="mt-0">
                 <br><button class="viewreply btn-reply">View Reply</button>
-                    </div>
                 <div class="display_replies" hidden>
-                    <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
-                    <?php
-                        while ($row_reply = $result_reply->fetch_assoc()) { ?>
-
-                        <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
-                        <?php } ?>
-                </div>
-                    <?php
+                <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
+                <?php
+                    while ($row_reply = $result_reply->fetch_assoc()) { ?>
+                
+                <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
+                    <?php } 
 
                     }
+                echo "</div>";
                     if($blog_user_id == $user_id){
                 ?>
                     <form action="create_reply.php" method="POST">
@@ -190,12 +188,12 @@ echo $content;
                         <center><input type="submit" value="Reply" class="btn btn-light border-primary mt-2 d-flex"></center>    
                     </form>
 
-                <?php 
-                 
+                <?php  
                  }        
                  
                 
                 }
+                echo "</div>";
                 } else {
                 echo "No comments Yet!";
                 }?>
