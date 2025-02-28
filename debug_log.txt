@@ -1,0 +1,987 @@
+Request Method: POST
+POST Data: Array
+(
+)
+
+FILES Data: Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot 2024-02-26 124821.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot 2024-02-26 124821.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpF82B.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 48662
+                )
+
+        )
+
+)
+
+Request Method: POST
+POST Data: Array
+(
+)
+
+FILES Data: Array
+(
+    [image] => Array
+        (
+            [name] => Screenshot 2024-02-26 124821.png
+            [full_path] => Screenshot 2024-02-26 124821.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpF81B.tmp
+            [error] => 0
+            [size] => 48662
+        )
+
+)
+
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php5C54.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 641949
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (29).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (29).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php6386.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 275868
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php3A12.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 423743
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (33).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (33).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php22B5.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 816920
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (18).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (18).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpEB37.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 142208
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (9).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (9).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php7B83.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 209602
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (39).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (39).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpA9A9.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 211741
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (4).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (4).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php367A.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 192918
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (49).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (49).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php66E3.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 261657
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (70).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (70).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpE85A.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 356049
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot 2023-10-26 225356.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot 2023-10-26 225356.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php1E61.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 12541
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (7).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (7).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php977A.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 190507
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (63).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (63).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php460.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 2050162
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (9).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (9).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpD11A.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 209602
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php71D1.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 641949
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (8).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpA2F0.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 641949
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (44).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (44).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php5ABE.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 198709
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (39).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (39).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php7FD7.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 211741
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (76).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (76).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpAADF.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 339957
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (29).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (29).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpD113.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 275868
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (28).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (28).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php645B.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 267727
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (28).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (28).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpD2A1.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 267727
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php33BE.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 423743
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (4).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (4).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php9FB3.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 192918
+                )
+
+        )
+
+)
+Array
+(
+    [blog_images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (34).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpC155.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 423743
+                )
+
+        )
+
+)
