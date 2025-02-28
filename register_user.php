@@ -110,16 +110,12 @@ if(isset($_GET['email_exists'])) {
     </div>
 
         <div class="mb-1 form-group">
-            <label class="form-label position-relative" for="firstname">First Name:</label>
+            <label class="form-label position-relative" for="firstname">Full Name:</label>
             <input type="firstname"id="firstname" name="firstname"class="form-control w-100">
             <small id="firstname_helpid" class="text-muted" hidden>Required</small> 
             
         </div>
-        <div class="mb-1 form-group ">
-            <label class="form-label position-relative" for="lastname">Last Name:</label>
-            <input type="lastname" id="lastname" name="lastname" class="form-control w-100" > 
-            <small id="lastname_helpid" class="text-muted" hidden>Required</small> 
-        </div>
+        
         <div class="mb-1 form-group ">
             <label class="form-label position-relative" for="lastname">Username:</label>
             <input type="username" id="username" name="username" class="form-control w-100" > 
