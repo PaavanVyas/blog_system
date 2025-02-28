@@ -391,6 +391,11 @@ if(isset($_GET['email_exists'])) {
             <small id="email_helpid" class="text-muted" hidden>Required</small> 
         </div>
         <div class="mb-1 form-group ">
+            <label class="form-label position-relative" for="email">Date of birth:</label>
+            <input type="date"id="dob" name="dob"class="form-control w-100" > 
+            <small id="email_helpid" class="text-muted" hidden>Required</small> 
+        </div>
+        <div class="mb-1 form-group ">
             <label class="form-label position-relative" for="image">Profile Photo:</label>
             <input type="file" id="image" name="image" class="form-control w-100"> 
             <small id="email_helpid" class="text-muted" hidden>Required</small> 
