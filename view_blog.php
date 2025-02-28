@@ -223,7 +223,7 @@ echo $content;
                 </form>
             </div>
             </div>
-            <h1>HELLO WORLD</h1>
+            <h1>HEllo World</h1>
             <?php
                 }
             ?>
