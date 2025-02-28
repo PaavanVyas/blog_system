@@ -95,7 +95,7 @@ if(isset($_GET['email_exists'])) {
         </script>
     <?php }?> 
     <div class="img-register">
-        <img src="./images/become-merhcant.PNG" alt="Retailer">
+        <img src="./images/invennico_logo-removebg.PNG" alt="Retailer">
     </div>
 <div class="container form-container div-design">
     <form action="register.php" method="POST" name="registration" id="myForm" enctype="multipart/form-data">
@@ -109,7 +109,7 @@ if(isset($_GET['email_exists'])) {
         </div>   
     </div>
 
-        <div class="mb-1 form-group">
+        <div class="mb-1 form-group ">
             <label class="form-label position-relative" for="firstname">First Name:</label>
             <input type="firstname"id="firstname" name="firstname"class="form-control w-100">
             <small id="firstname_helpid" class="text-muted" hidden>Required</small> 
