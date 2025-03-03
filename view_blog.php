@@ -73,37 +73,36 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 </nav>
 
 <h2 class="text-center mt-2">View Blog</h2>
-<div class=" container img-blog-cover">
-        <?php if (!empty($blog_cover)) { ?>
-                <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
-<div class=" container img-blog-cover">
+
+<div class="container img-blog-cover">
         <?php if (!empty($blog_cover)) { ?>
                 <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
         <?php } ?>
-        <div class="d-flex justify-content-between mt-2">
-            <h4><?php echo htmlspecialchars($blog_title); ?></h4>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Share</button>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Share Link</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h6>Copy Current URL:</h6>
-        <p id="urlText"></p> <!-- Display URL here -->
-        <button id="copyBtn" class="btn btn-primary">Copy</button>
-    </div>
+</div>     
 <div class="container div-main-viewblog">
     
             <div class="div-design-viewblog">
                 <div class=" container div-color-viewblog">
-                    <div class="d-flex justify-content-between mt-2">
-                        <h4><?php echo htmlspecialchars($blog_title);?></h4>
-                        <p><b>By: <?php echo htmlspecialchars($username); ?></b></p>
+                <div class="d-flex justify-content-between mt-2">
+                    <h4><?php echo htmlspecialchars($blog_title); ?></h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Share</button>
+                </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Share Link</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h6>Copy Current URL:</h6>
+                    <p id="urlText"></p> 
+                    <button id="copyBtn" class="btn btn-primary">Copy</button>
                     </div>
+                </div>
+                </div>
+            </div>
+                    <p>@<?php echo htmlspecialchars($username);?></p>
                     <p><?php echo htmlspecialchars($blog_category);?></p>
             
             
@@ -189,38 +188,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
             ?>
 
             
-<div class="container border div-design-comment mb-3">
-            <h4>Comments</h4>
-            
-            <div class="container mt-3 comment-border">  
-            
-            <div class="container mt-3 comment-border"> 
-            <?php
-            if (isset($user_id)){
-            if ($blog_user_id != $user_id)
-            {
-            ?>
-            <div class=" container mt-2 border div-design-add-comment">
-                <h4>Add a Comment</h4>
-                <form action="create_comment.php" method="POST" id="replydata">
-
-                    <div class="mb-1 form-group ">
-                        
-                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
-                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
-                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
-                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
-                    </div>
-                    <div>
-                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
-                    </div>
-                </form>
-            </div>
-            </div>
-            <?php
-                }
-            }
-            ?> 
             <?php
                 $stmt_comment = $conn->prepare("SELECT * FROM comments_data JOIN users ON comments_data.user_id = users.user_id WHERE blog_id = ?");
                 $stmt_comment->bind_param("s", $blog_id);
@@ -313,6 +280,21 @@ $conn->close();
         console.log("Toggled visibility of replies.");
     });
 });
+
+const url = new URL(window.location.href);
+  url.searchParams.delete("user_id");
+
+  document.getElementById("urlText").textContent = url.href;
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    navigator.clipboard.writeText(url.href)
+      .then(() => {
+        alert("URL copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+  });
 
 
 </script>

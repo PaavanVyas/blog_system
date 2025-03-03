@@ -43,7 +43,7 @@ body{
     color: black;
     font-size:80%;      
 } */
-} */
+
 
 .navbar{
     background-color: #F5F5FA ;
@@ -173,11 +173,11 @@ body{
 }
 
 .card-text {
-    min-height: auto !important; /* Let it expand naturally */
-    max-height: 400px; /* Set a reasonable max height */
-    overflow:hidden;
+    flex-grow: 1;
+    max-height: none;
+    overflow: hidden;
+    white-space: normal;
 }
-
 
 .card-text img {
     width: 100%;
@@ -472,6 +472,6 @@ body{
 }
 
 .img-blog-cover img{
-    width: 99%;
+    width: 75%;
     margin-left: 1%;
 }
