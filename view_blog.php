@@ -199,10 +199,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
             ?>
                   
                 <div>
-                        <label><b>@<?php echo $row["username"];?></b></label>
+                        <label class="mt-3"><b>@<?php echo $row["username"];?></b></label>
                 </div>
                 <div>
-                    <label class="mb-1 mt-1"><?php echo $row["comment_content"]; ?></label>
+                    <label><?php echo $row["comment_content"]; ?></label>
                 </div>
                 <?php
                     $stmt_reply = $conn -> prepare("SELECT reply,comment_id,user_id,reply_id FROM reply_data WHERE comment_id=?");
@@ -211,13 +211,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                     $result_reply = $stmt_reply->get_result();
                     if($result_reply->num_rows>0){
                 ?>
-                <br><button class="viewreply btn-reply mb-2">View Reply</button>
+                <button class="viewreply btn-reply">View Reply</button>
                 <div class="display_replies" hidden>
-                <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
+                <label><b>@<?php echo htmlspecialchars($username); ?></b></label>
                 <?php
                     while ($row_reply = $result_reply->fetch_assoc()) { ?>
                 
-                <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
+                <label><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br>
                     <?php } 
                 echo "</div>";
                     }
