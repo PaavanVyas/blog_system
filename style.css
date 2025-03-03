@@ -26,6 +26,7 @@ body{
     width: 100%;
     font-size: 80%;
     align-self: center;
+
 }
 
 .div-edit-blog{
@@ -138,12 +139,12 @@ body{
     margin-left: 0%;
 }
 
-
 .card-body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     overflow: hidden;
+    min-height: 400px;
 }
 .card-img-top {
     width: 100%;
