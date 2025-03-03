@@ -76,6 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 <div class=" container img-blog-cover">
         <?php if (!empty($blog_cover)) { ?>
                 <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
+<div class=" container img-blog-cover">
+        <?php if (!empty($blog_cover)) { ?>
+                <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
         <?php } ?>
         <div class="d-flex justify-content-between mt-2">
             <h4><?php echo htmlspecialchars($blog_title); ?></h4>
@@ -186,10 +189,38 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
             ?>
 
             
+<div class="container border div-design-comment mb-3">
             <h4>Comments</h4>
             
             <div class="container mt-3 comment-border">  
             
+            <div class="container mt-3 comment-border"> 
+            <?php
+            if (isset($user_id)){
+            if ($blog_user_id != $user_id)
+            {
+            ?>
+            <div class=" container mt-2 border div-design-add-comment">
+                <h4>Add a Comment</h4>
+                <form action="create_comment.php" method="POST" id="replydata">
+
+                    <div class="mb-1 form-group ">
+                        
+                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
+                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
+                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
+                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
+                    </div>
+                    <div>
+                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <?php
+                }
+            }
+            ?> 
             <?php
                 $stmt_comment = $conn->prepare("SELECT * FROM comments_data JOIN users ON comments_data.user_id = users.user_id WHERE blog_id = ?");
                 $stmt_comment->bind_param("s", $blog_id);
@@ -251,33 +282,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 
             </div>
             </div>
-            <?php
-            if (isset($user_id)){
-            if ($blog_user_id != $user_id)
-            {
-            ?>
-            <div class=" container mt-2 border div-design-add-comment">
-                <h4>Add a Comment</h4>
-                <form action="create_comment.php" method="POST" id="replydata">
-
-                    <div class="mb-1 form-group ">
-                        
-                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
-                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
-                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
-                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
-                    </div>
-                    <div>
-                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
-                    </div>
-                </form>
-            </div>
-            </div>
-            <?php
-                }
-            }
-            ?>
-
+            
 <?php
 
 $stmt->close();

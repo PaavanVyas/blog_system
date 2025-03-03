@@ -1,5 +1,5 @@
 body{
-    background-color: #F4F1DE ;
+    background-color: #F8F9FA ;
 }
 .btn-display{
     margin-bottom: 1%;
@@ -38,12 +38,15 @@ body{
 
 /* .accordian-text{
     background-color:#d2deea;
+/* .accordian-text{
+    background-color:#d2deea;
     color: black;
     font-size:80%;      
 } */
+} */
 
 .navbar{
-    background-color: #F8C291;
+    background-color: #F5F5FA ;
     color: black;
 }
 .div-card-recommendation{
@@ -95,8 +98,9 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: rgb(218, 222, 167);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #FAFAFA;
     min-height: 400px;
     border-radius: 10px;          
 }
@@ -429,7 +433,8 @@ body{
 
 .div-design-comment{
     margin-top: 5%;
-    background-color: #FAE5D3 ;
+    background-color: #FFFFFF;
+    border-color: #DDDDDD;
     height: auto;
     width: 80%;
 }
@@ -447,6 +452,7 @@ body{
 }
 
 .div-design-add-comment{
+    background-color: rgb(190, 228, 243);
     margin-bottom: 5%;
     width: 100%;
     margin-top: 5%;
