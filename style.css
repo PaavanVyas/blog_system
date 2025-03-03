@@ -8,10 +8,10 @@ body{
     color:black;
 }
 .btn-reply{
-    background-color: transparent;
     color:black;
-    width: 20%;
+    width: 10%;
     height:auto;
+    margin-top: 0%;
 }
 .btn-display-edit{
     /* display: flex;
