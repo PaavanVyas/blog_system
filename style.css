@@ -400,20 +400,20 @@
 }
 
 .img-design-pfp img {
-    width: 40px;  /* Ensure fixed width */
-    height: 40px; /* Ensure fixed height */
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make it circular */ /* Space between image & text */
+    width: 40px;
+    height: 40px; 
+    object-fit: cover; 
+    border-radius: 50%; 
 }
 
-/* Align profile image and username properly */
+
 .d-flex.align-items-start {
     align-items: center; 
 }
 
 .div-design-comment{
     margin-top: 5%;
-    background-color: rgb(146, 228, 187);
+    background-color: rgb(190, 228, 243);
     height: auto;
     width: 80%;
 }
@@ -432,7 +432,7 @@
 }
 
 .div-design-add-comment{
-    background-color: rgb(128, 233, 191);
+    background-color: rgb(190, 228, 243);
     margin-bottom: 5%;
     width: 80%;
     margin-top: 5%;
