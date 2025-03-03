@@ -4,7 +4,10 @@ include './conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
     $blog_id = $_GET['blog_id'];
-    $user_id = $_GET['user_id'];
+    if(isset($_GET['user_id'])){
+        $user_id = $_GET['user_id'];
+    }
+    
     $username = $_GET['username'];
 
     $stmt = $conn->prepare("SELECT blog_id, blog_title, blog_content, blog_cover, datecreated, user_id, blog_category FROM blog_data WHERE blog_id = ?");
@@ -202,9 +205,10 @@ echo $content;
                         $comment_id = $row["comment_id"];
             ?>
                   
-                <div class="mt-2 border border-dark">
-                        <label><b>@<?php echo $row["username"];?></b></label><br/>
-                
+                <div>
+                        <label><b>@<?php echo $row["username"];?></b></label>
+                </div>
+                <div>
                     <label class="mb-1 mt-1"><?php echo $row["comment_content"]; ?></label>
 
                 </div>
@@ -216,20 +220,17 @@ echo $content;
                     $result_reply = $stmt_reply->get_result();
                     if($result_reply->num_rows>0){
                 ?>
-                <div class="mt-0">
                 <br><button class="viewreply btn-reply">View Reply</button>
-                    </div>
                 <div class="display_replies" hidden>
-                    <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
-                    <?php
-                        while ($row_reply = $result_reply->fetch_assoc()) { ?>
-
-                        <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
-                        <?php } ?>
-                </div>
-                    <?php
+                <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
+                <?php
+                    while ($row_reply = $result_reply->fetch_assoc()) { ?>
+                
+                <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
+                    <?php } 
 
                     }
+                    if(isset($user_id)){
                     if($blog_user_id == $user_id){
                 ?>
                     <form action="create_reply.php" method="POST">
@@ -240,15 +241,15 @@ echo $content;
                         <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
                         <input type="hidden" value="<?php echo $row['comment_id']; ?>" id="comment_id" name="comment_id">
                         <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
-                        <center><input type="submit" value="Reply" class="btn btn-light border-primary mt-2 d-flex"></center>    
+                        <input type="submit" value="Reply" class="btn btn-light border-primary mt-2 d-flex">    
                     </form>
-
-                <?php 
-                 
+                </div>
+                <?php  
                  }        
-                 
+                }
                 
                 }
+                echo "</div>";
                 } else {
                 echo "No comments Yet!";
                 }?>
@@ -287,6 +288,20 @@ $conn->close();
     });
 });
 
+const url = new URL(window.location.href);
+  url.searchParams.delete("user_id");
+
+  document.getElementById("urlText").textContent = url.href;
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    navigator.clipboard.writeText(url.href)
+      .then(() => {
+        alert("URL copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+  });
 
 </script>
 

@@ -405,13 +405,13 @@ body{
 }
 
 .img-design-pfp img {
-    width: 40px;  /* Ensure fixed width */
-    height: 40px; /* Ensure fixed height */
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make it circular */ /* Space between image & text */
+    width: 40px;
+    height: 40px; 
+    object-fit: cover; 
+    border-radius: 50%; 
 }
 
-/* Align profile image and username properly */
+
 .d-flex.align-items-start {
     align-items: center; 
 }
