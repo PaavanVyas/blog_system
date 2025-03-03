@@ -73,12 +73,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 </nav>
 
 <h2 class="text-center mt-2">View Blog</h2>
-
-<div class="container img-blog-cover">
+<div class=" container img-blog-cover">
         <?php if (!empty($blog_cover)) { ?>
                 <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
         <?php } ?>
-</div>     
+</div>
 <div class="container div-main-viewblog">
     
             <div class="div-design-viewblog">
@@ -205,7 +204,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                 <div>
                     <label class="mb-1 mt-1"><?php echo $row["comment_content"]; ?></label>
                 </div>
-
                 <?php
                     $stmt_reply = $conn -> prepare("SELECT reply,comment_id,user_id,reply_id FROM reply_data WHERE comment_id=?");
                     $stmt_reply->bind_param("s",$comment_id);
@@ -221,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                 
                 <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
                     <?php } 
-
+                echo "</div>";
                     }
                     if(isset($user_id)){
                     if($blog_user_id == $user_id){
