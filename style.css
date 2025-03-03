@@ -100,7 +100,7 @@ body{
     height: 100%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    background-color: #FAFAFA;
+    background-color: #d2deea;
     min-height: 400px;
     border-radius: 10px;          
 }
@@ -173,11 +173,11 @@ body{
 }
 
 .card-text {
-    flex-grow: 1;
-    max-height: none;
-    overflow: hidden;
-    white-space: normal;
+    min-height: auto !important; 
+    overflow:hidden;
+    font-size: 125%;
 }
+
 
 .card-text img {
     width: 100%;
@@ -242,7 +242,7 @@ body{
         transition: background 0.3s ease;
 } */
 .div-color-viewblog{
-    background-color: #d2deea ;
+    background-color: #d2deea;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     border-radius: 10px;
     width: 80%;
@@ -471,5 +471,6 @@ body{
 }
 
 .img-blog-cover img{
-    width: 82%;
+    width: 83%;
+    overflow: hidden;
 }
