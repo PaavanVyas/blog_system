@@ -102,19 +102,19 @@
                 </h6>
                     </div>
             </div>
-            <p class="card-text mt-2 flex-grow-1 overflow-hidden" style="min-height: 100px;">
+            <p class="card-text mt-2">
         <?php
-            $content = $row["blog_content"];
-            $content = nl2br($content);
-              
-            // Apply htmlspecialchars AFTER image replacement
-            echo $content;
-            ?>
-            
-            </p>
+$content = $row["blog_content"];
+$content = nl2br($content);
+
+// Apply htmlspecialchars AFTER image replacement
+echo $content;
+?>
+
+</p>
 
 
-                                    <a href="view_blog.php?blog_id=<?php echo $row['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($row['username']); ?>" 
+  <a href="view_blog.php?blog_id=<?php echo $row['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($row['username']); ?>" 
    class="btn btn-light border-primary btn-display-viewblog ">
    Read Full Blog
 </a>
