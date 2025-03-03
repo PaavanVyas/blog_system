@@ -1,3 +1,6 @@
+body{
+    background-color: #F4F1DE ;
+}
 .btn-display{
     margin-bottom: 1%;
     margin-top: 1%;
@@ -23,6 +26,7 @@
     width: 100%;
     font-size: 80%;
     align-self: center;
+    background-color: 0984E3 ;
 }
 
 .div-edit-blog{
@@ -39,7 +43,7 @@
 }
 
 .navbar{
-    background-color: rgb(252, 222, 255);
+    background-color: #F8C291;
     color: black;
 }
 .div-card-recommendation{
@@ -95,7 +99,7 @@
     flex-direction: column;
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: rgb(218, 222, 167);
+    background-color:#FAE5D3;
     min-height: 400px;
     border-radius: 10px;       /* Rounded corners */
     overflow: hidden;         /* Ensures images don’t overflow */
@@ -107,6 +111,7 @@
     object-fit: cover;        
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background-color: #2C3E50 ;
 }
 
 .div-design-viewblog p img{
@@ -413,7 +418,7 @@
 
 .div-design-comment{
     margin-top: 5%;
-    background-color: rgb(190, 228, 243);
+    background-color: #FAE5D3 ;
     height: auto;
     width: 80%;
 }
@@ -432,9 +437,8 @@
 }
 
 .div-design-add-comment{
-    background-color: rgb(190, 228, 243);
     margin-bottom: 5%;
-    width: 80%;
+    width: 100%;
     margin-top: 5%;
 }
 
