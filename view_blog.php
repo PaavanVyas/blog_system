@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 
     <?php if (isset($_SESSION["user_id_session"]) && $blog_user_id != $_SESSION["user_id_session"]) { ?>
     <div class="div-design-viewblog-recommendation">
-        <h4>Other Blogs by <?php echo htmlspecialchars($username); ?></h4>
+        <h5>Other Blogs by <?php echo htmlspecialchars($username); ?></h5>
         
         <?php
         $recommend_stmt = $conn->prepare("SELECT blog_id, blog_title FROM blog_data WHERE blog_id != ? AND user_id = ? ORDER BY datecreated DESC");

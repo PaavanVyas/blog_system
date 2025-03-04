@@ -116,11 +116,12 @@ echo $content;
 
 </p>
 
-
+<div class="d-flex justify-content-between mt-auto">
   <a href="view_blog.php?blog_id=<?php echo $row['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($row['username']); ?>" 
    class="btn btn-light border-primary btn-display-viewblog ">
    Read Full Blog
 </a>
+  </div>
 <h6 class="mt-2 mb-2">Posted on: <?php echo $row["datecreated"]; ?></h6>
 
         </div>
