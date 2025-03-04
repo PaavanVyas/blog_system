@@ -376,10 +376,11 @@ body{
         width: 200%;
         overflow: hidden;
     }
+    
 
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
     .div-design-register{
         width: 70%;
         margin-left:18%;
@@ -392,14 +393,13 @@ body{
         display: block !important;
     }
 
-    .div-main-viewblog, 
-    .div-design-viewblog-recommendation {
+    .div-main-viewblog {
         width: 100% !important;
     }
 
-    .accordion-item
+    .accordion-text 
     {
-        width: 400%;
+        max-width: 90%;
     }
     .img-blog-cover img{
         width: 100%;
@@ -409,12 +409,9 @@ body{
         margin-top: 3%;
     }
     .div-design-viewblog-recommendation{
-        width: 100%;
+        width: 40%;
     }
-}
 
-
-@media (max-width:800px){
     .div-design-editblog{
         width: 80%;
         margin-left:10%;
@@ -430,6 +427,9 @@ body{
         width: 100%;
     }
     .reply-textarea textarea{
+        width: 100%;
+    }
+    .navbar-expand-lg{
         width: 100%;
     }
 }
