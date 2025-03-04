@@ -71,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
     </div>
   </div>
 </nav>
-
 <h2 class="text-center mt-2">View Blog</h2>
 <div class="container d-flex justify-content-between">
     <div class="div-main-viewblog flex-grow-1">
@@ -132,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
         $recommend_stmt->bind_param("ss", $blog_id, $blog_user_id);
         $recommend_stmt->execute();
         $result_recommend = $recommend_stmt->get_result();
-
         if ($result_recommend->num_rows > 0) { 
             while ($row_recommend = $result_recommend->fetch_assoc()) { ?>
                 <div class="accordion" id="accordionExample">
