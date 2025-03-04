@@ -77,22 +77,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
         <?php if (!empty($blog_cover)) { ?>
                 <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
         <?php } ?>
-</div>
-<div class="container div-main-viewblog">
-    
-            <div class="div-design-viewblog">
-                <div class=" container div-color-viewblog">
-                    <div class="d-flex justify-content-between mt-2">
-                        <h4><?php echo htmlspecialchars($blog_title);?></h4>
-                        <p><b>By: <?php echo htmlspecialchars($username); ?></b></p>
-                    </div>
-                    <p><?php echo htmlspecialchars($blog_category);?></p>
-            
-            
-                    <p class="card-text mt-2 flex-grow-1 overflow-hidden" style="min-height: 100px;">
-                    <?php
-                    $content = $blog_content;
-                    $content = nl2br($content);
+        <h4><?php echo htmlspecialchars($blog_title); ?></h4>
+        <p><b>By: <?php echo htmlspecialchars($username); ?></b></p>
+        <p>Category: <?php echo htmlspecialchars($blog_category);?></p>
+        <p>Posted on: <?php echo htmlspecialchars($datecreated);?></p>
+
+
+        <!-- Display Blog Content with Image Replacements -->
+        <p class="card-text mt-2 flex-grow-1 overflow-hidden" style="min-height: 100px;">
+        <?php
+$content = $blog_content;
+$content = nl2br($content);
 
                     echo $content;
                     ?>
@@ -230,7 +225,31 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 
             </div>
             </div>
-            
+            <?php
+            if ($blog_user_id != $user_id)
+            {
+            ?>
+            <div class=" container mt-2 border div-design-add-comment">
+                <h4>Add a Comment</h4>
+                <form action="create_comment.php" method="POST" id="replydata">
+
+                    <div class="mb-1 form-group ">
+                        
+                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
+                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
+                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
+                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
+                    </div>
+                    <div>
+                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <h4>HEllo this is in new-branch</h4>
+            <?php
+                }
+            ?>
 
 <?php
 
