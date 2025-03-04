@@ -10,14 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $blog_category = $_POST["blog_category"] ?? "Uncategorized"; 
     $datecreated = date("Y-m-d");
 
-    // Generate Short Blog ID (Last 5 digits of time())
     $blog_id = "B" . substr(time(), -5);
 
-    // Start the transaction for consistent inserts
     $conn->begin_transaction();
 
     try {
-        // Insert blog into the database
         $stmt = $conn->prepare("INSERT INTO blog_data (blog_id, user_id, blog_title, blog_content, blog_category, datecreated) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $blog_id, $user_id, $blog_title, $blog_content, $blog_category, $datecreated);
 
@@ -26,24 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $response["message"] = "Blog inserted successfully.";
             $response["blog_id"] = $blog_id;
 
-            // Handle Blog Cover Upload
             $target_directory = "uploads/";
 
-            // Create the uploads directory if it doesn't exist
             if (!is_dir($target_directory)) {
                 mkdir($target_directory, 0777, true);
             }
 
-            // Handle blog cover image (if uploaded)
             if (isset($_FILES['blog_cover']) && $_FILES['blog_cover']['error'] === 0) {
                 $cover_image_name = $_FILES['blog_cover']['name'];
                 $cover_tmp_name = $_FILES['blog_cover']['tmp_name'];
                 $cover_unique_name = time() . "_" . basename($cover_image_name);
                 $cover_image_url = $target_directory . $cover_unique_name;
 
-                // Move uploaded cover image
                 if (move_uploaded_file($cover_tmp_name, $cover_image_url)) {
-                    // Update the blog record with the cover image URL
+                    
                     $stmt_cover = $conn->prepare("UPDATE blog_data SET blog_cover = ? WHERE blog_id = ?");
                     $stmt_cover->bind_param("ss", $cover_image_url, $blog_id);
                     if ($stmt_cover->execute()) {
@@ -56,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
             }
 
-            // Handle Image Uploads for the blog content (if any)
             if (!empty($_FILES['blog_images']['name'][0])) {
                 $img_count = 0;   // Track correct image numbering
                 foreach ($_FILES['blog_images']['name'] as $key => $image_name) {
@@ -66,14 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         $image_url = $target_directory . $unique_name;
                         $placeholder = "[img$key]";
 
-                        // Upload image and process it
                         if (move_uploaded_file($tmp_name, $image_url)) {
-                            // Image was uploaded successfully, store it in the database
                             $stmt_img = $conn->prepare("INSERT INTO blog_images (blog_id, image_url, placeholder) VALUES (?, ?, ?)");
                             $stmt_img->bind_param("sss", $blog_id, $image_url, $placeholder);
                             $stmt_img->execute();
                 
-                            // Add image to response
                             $response["images"][] = ["url" => $image_url, "placeholder" => $placeholder];
                         } else {
                             $response["errors"][] = "Failed to upload $image_name";
@@ -81,12 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 }
 
-                // Replace placeholders with image tags in the blog content
                 foreach ($response["images"] as $image) {
                     $blog_content = str_replace($image["placeholder"], "<img src='" . $image["url"] . "' alt='image'>", $blog_content);
                 }
 
-                // Update blog content with replaced image URLs
                 $stmt_update = $conn->prepare("UPDATE blog_data SET blog_content = ? WHERE blog_id = ?");
                 $stmt_update->bind_param("ss", $blog_content, $blog_id);
                 if ($stmt_update->execute()) {
@@ -96,18 +83,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
             }
 
-            // Commit the transaction if everything is successful
             $conn->commit();
             header("Location: display_blog.php?user_id=$user_id");
             exit();
 
         } else {
-            // If blog insert fails, roll back the transaction
             $conn->rollback();
             $response["message"] = "Failed to insert blog.";
         }
     } catch (Exception $e) {
-        // Rollback on exception
         $conn->rollback();
         $response["message"] = "Error: " . $e->getMessage();
     }
