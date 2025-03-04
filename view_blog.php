@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
             </div>
         <?php } ?>
         
-        <div class="div-design-viewblog">
+        <div class="div-design-viewblog container">
             <div class="div-color-viewblog p-2">
                 <div class="d-flex justify-content-between mt-2">
                     <h4><?php echo htmlspecialchars($blog_title); ?></h4>
