@@ -1,6 +1,8 @@
 <?php
+
     session_start();
     $user_id = $_GET['user_id'];
+    include './conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,30 +99,29 @@ document.addEventListener("DOMContentLoaded", function () {
 <body>
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <div  class="img-navbar">
-    <a href="index.php?user_id=<?php echo $user_id; ?>">
-        <img src="./images/invennico_logo-removebg.PNG" alt="Retailer"></img>
+    <a class="navbar-brand" href="index.php?user_id=<?php echo htmlspecialchars($user_id); ?>">
+      <img src="./images/invennico_logo-removebg.PNG" alt="Retailer" style="height: 40px;">
     </a>
-    <a class="navbar-brand" href="display_blog.php?user_id=<?php echo $user_id; ?>">Blogs</a>
-    <a class="navbar-brand" href="display_my_blog.php?user_id=<?php echo $user_id; ?>">My Blogs</a>
-    <a class="navbar-brand" href="create_blog.php?user_id=<?php echo $user_id; ?>">Create New Blog</a>
-    <?php
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    if(isset($_SESSION['user_id_session'])) { 
-        $user_id = $_SESSION['user_id_session'];
-    ?> 
-    <a class="navbar-brand" href="logout.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Logout</a>
-    <?php 
-    }
-    else{
-    ?>
-    <a class="navbar-brand" href="register_user.php?user_id=<?php echo $user_id; ?>">Register</a>
-    <a class="navbar-brand" href="login_user.php?user_id=<?php echo $user_id; ?>">Login</a>
-        
-    <?php }?>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="display_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="display_my_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">My Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="create_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Create New Blog</a></li>
+
+        <?php if (isset($_SESSION['user_id_session'])) { ?>
+        <li class="nav-item"><a class="nav-link" href="logout.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Logout</a></li>
+        <?php } else { ?>
+        <li class="nav-item"><a class="nav-link" href="register_user.php">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="login_user.php">Login</a></li>
+        <?php } ?>
+      </ul>
     </div>
-        </div>
-      </div>
+  </div>
 </nav>
     <div class="div-design-register">
     <h2>Create new Blog</h2>
@@ -147,6 +148,25 @@ document.addEventListener("DOMContentLoaded", function () {
         <label class="form-label position-relative">Upload Blog Cover:</label>
         <input type="file" name="blog_cover" accept="image/*" class="form-control w-100"><br>
 </div>
+<div class="mb-1 form-group">
+    <label class="form-label position-relative">Select category</label>
+    <select name="blog_category" class="form-control">
+        <option value="">-- Select a category --</option> 
+        <?php
+            $sql_category = "SELECT * FROM blog_category";
+            $result_category = $conn->query($sql_category);
+
+            if ($result_category->num_rows > 0) {
+                while ($row_category = $result_category->fetch_assoc()) { ?>
+                    <option value="<?php echo $row_category['blog_category_name']; ?>">
+                        <?php echo htmlspecialchars($row_category['blog_category_name']); ?>
+                    </option>
+                <?php }
+            }
+        ?>
+    </select>
+</div>
+
 
     <center><button type="submit">Post Blog</button></center>
 </form>

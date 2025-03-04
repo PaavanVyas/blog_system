@@ -69,7 +69,7 @@
                 <a href="create_blog.php?user_id=<?php echo $user_id; ?>" class="btn btn-primary btn-display">Create a new blog</a>
             </div>
             <?php
-                $stmt = $conn->prepare("SELECT blog_title, blog_content, datecreated, username, user_image, blog_cover, blog_id 
+                $stmt = $conn->prepare("SELECT blog_title, blog_content,blog_category, datecreated, username, user_image, blog_cover, blog_id 
                                         FROM blog_data 
                                         JOIN users ON blog_data.user_id = users.user_id 
                                         WHERE blog_data.user_id != ?
@@ -91,6 +91,9 @@
             <h5 class="card-title mb-0">
                 <?php echo htmlspecialchars($row["blog_title"]); ?>
             </h5>
+            <p class="card-content mb-0">
+              <?php echo htmlspecialchars($row["blog_category"]);?>
+            </p>
             <hr>
             <div class="d-flex">
                 <div class="img-design-pfp me-2">
