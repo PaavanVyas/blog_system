@@ -73,97 +73,103 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
 </nav>
 
 <h2 class="text-center mt-2">View Blog</h2>
-<div class="container mt-4 div-main-viewblog align-items-start">
-    <div class="div-design-viewblog">
-    <?php if (!empty($blog_cover)) { ?>
-        <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
+<div class="container img-blog-cover">
+        <?php if (!empty($blog_cover)) { ?>
+                <img src="<?php echo htmlspecialchars($blog_cover); ?>" class="card-img-top" alt="blog cover">
         <?php } ?>
-        <div class="d-flex justify-content-between mt-2">
-            <h4><?php echo htmlspecialchars($blog_title); ?></h4>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Share</button>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Share Link</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h6>Copy Current URL:</h6>
-        <p id="urlText"></p> <!-- Display URL here -->
-        <button id="copyBtn" class="btn btn-primary">Copy</button>
-    </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
-        
-        <p><b>By: <?php echo htmlspecialchars($username); ?></b></p>
-        <p>Category: <?php echo htmlspecialchars($blog_category);?></p>
-        <p>Posted on: <?php echo htmlspecialchars($datecreated);?></p>
-
-
-        <!-- Display Blog Content with Image Replacements -->
-        <p class="card-text mt-2 flex-grow-1 overflow-hidden" style="min-height: 100px;">
-        <?php
-$content = $blog_content;
-$content = nl2br($content);
-
-// Apply htmlspecialchars AFTER image replacement
-echo $content;
-?>
-
-</p>
-
-
-        <center><a href="display_blog.php?user_id=<?php echo $user_id; ?>" class="btn btn-light border-primary">Go back</a></center>
-
-        <?php
-        if (isset($_SESSION["user_id_session"]) && $blog_user_id == $_SESSION["user_id_session"]) { ?>
-            <center><a href="edit_blog.php?blog_id=<?php echo $blogid; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>" 
-               class="btn btn-light border-primary mt-2">Edit</a></center>
-        <?php } ?>
-    </div>
-
-
-    <div class="div-design-viewblog-recommendation">
-    <?php
-    if (isset($_SESSION["user_id_session"]) && $blog_user_id != $_SESSION["user_id_session"]) { ?>
-        <h4>Other Blogs by <?php echo htmlspecialchars($username); ?></h4>
-            <?php
-                $recommend_stmt = $conn->prepare("SELECT blog_id, blog_title FROM blog_data WHERE blog_id != ? AND user_id = ? ORDER BY datecreated DESC");
-                $recommend_stmt->bind_param("ss", $blog_id, $blog_user_id);
-                $recommend_stmt->execute();
-                $result_recommend = $recommend_stmt->get_result();
-                
-                while ($row_recommend = $result_recommend->fetch_assoc()) { ?>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item border-success-subtle m-1">
-                            <a class="link-danger link-underline-opacity-75-hover"
-                               href="view_blog.php?blog_id=<?php echo $row_recommend['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>">
-                                <p class="accordion-header accordian-text">
-                                    <?php echo $row_recommend["blog_title"]; ?>
-                                </p>
-                            </a>
-                        </div>
+<div class="container div-main-viewblog">
+    
+            <div class="div-design-viewblog">
+                <div class=" container div-color-viewblog">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h4><?php echo htmlspecialchars($blog_title);?></h4>
+                        <p><b>By: <?php echo htmlspecialchars($username); ?></b></p>
                     </div>
-                <?php }
-                $recommend_stmt->close();
-    }
-            ?>
-        
-        </div>
-        
-</div>
+                    <p><?php echo htmlspecialchars($blog_category);?></p>
+            
+            
+                    <p class="card-text mt-2 flex-grow-1 overflow-hidden" style="min-height: 100px;">
+                    <?php
+                    $content = $blog_content;
+                    $content = nl2br($content);
 
-<div class="container border div-design-comment">
+                    echo $content;
+                    ?>
+
+                    </p>
+
+
+                    <center><a href="display_blog.php?user_id=<?php echo $user_id; ?>" class="btn btn-light border-primary">Go back</a></center>
+
+                    <?php
+                    if (isset($_SESSION["user_id_session"]) && $blog_user_id == $_SESSION["user_id_session"]) { ?>
+                        <center><a href="edit_blog.php?blog_id=<?php echo $blogid; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>" 
+                           class="btn btn-light border-primary mt-2">Edit</a></center>
+                    <?php } ?>
+                    
+                    <p>Posted on: <?php echo htmlspecialchars($datecreated);?></p>
+                </div>
+
+            <div class="div-design-viewblog-recommendation">
+                <?php
+                if (isset($_SESSION["user_id_session"]) && $blog_user_id != $_SESSION["user_id_session"]) { ?>
+                    <h4>Other Blogs by <?php echo htmlspecialchars($username); ?></h4>
+                        <?php
+                            $recommend_stmt = $conn->prepare("SELECT blog_id, blog_title FROM blog_data WHERE blog_id != ? AND user_id = ? ORDER BY datecreated DESC");
+                            $recommend_stmt->bind_param("ss", $blog_id, $blog_user_id);
+                            $recommend_stmt->execute();
+                            $result_recommend = $recommend_stmt->get_result();
+
+                            while ($row_recommend = $result_recommend->fetch_assoc()) { ?>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item border-success-subtle m-1">
+                                        <a class="link-danger link-underline-opacity-75-hover"
+                                           href="view_blog.php?blog_id=<?php echo $row_recommend['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>">
+                                            <p class="accordion-header accordian-text">
+                                                <?php echo $row_recommend["blog_title"]; ?>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php }
+                            $recommend_stmt->close();
+                }
+                        ?>
+
+            </div>
+</div>
+</div>
+<div class="container border div-design-comment mb-3">
             <h4>Comments</h4>
             
-            <div class="container mt-3 comment-border">  
+            <div class="container mt-3 comment-border"> 
+            <?php
+            if (isset($user_id)){
+            if ($blog_user_id != $user_id)
+            {
+            ?>
+            <div class=" container mt-2 border div-design-add-comment">
+                <h4>Add a Comment</h4>
+                <form action="create_comment.php" method="POST" id="replydata">
+
+                    <div class="mb-1 form-group ">
+                        
+                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
+                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
+                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
+                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
+                    </div>
+                    <div>
+                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <?php
+                }
+            }
+            ?> 
             <?php
                 $stmt_comment = $conn->prepare("SELECT * FROM comments_data JOIN users ON comments_data.user_id = users.user_id WHERE blog_id = ?");
                 $stmt_comment->bind_param("s", $blog_id);
@@ -176,13 +182,11 @@ echo $content;
             ?>
                   
                 <div>
-                        <label><b>@<?php echo $row["username"];?></b></label>
+                        <label class="mt-3"><b>@<?php echo $row["username"];?></b></label>
                 </div>
                 <div>
-                    <label class="mb-1 mt-1"><?php echo $row["comment_content"]; ?></label>
-
+                    <label><?php echo $row["comment_content"]; ?></label>
                 </div>
-
                 <?php
                     $stmt_reply = $conn -> prepare("SELECT reply,comment_id,user_id,reply_id FROM reply_data WHERE comment_id=?");
                     $stmt_reply->bind_param("s",$comment_id);
@@ -190,15 +194,15 @@ echo $content;
                     $result_reply = $stmt_reply->get_result();
                     if($result_reply->num_rows>0){
                 ?>
-                <br><button class="viewreply btn-reply">View Reply</button>
+                <button class="viewreply btn-reply">View Reply</button>
                 <div class="display_replies" hidden>
-                <label><b>@<?php echo htmlspecialchars($username); ?></b></label><br/>
+                <label><b>@<?php echo htmlspecialchars($username); ?></b></label>
                 <?php
                     while ($row_reply = $result_reply->fetch_assoc()) { ?>
                 
-                <label class="reply_text"><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br/>
+                <label><?php echo htmlspecialchars($row_reply["reply"]); ?></label><br>
                     <?php } 
-
+                echo "</div>";
                     }
                     if(isset($user_id)){
                     if($blog_user_id == $user_id){
@@ -226,32 +230,7 @@ echo $content;
 
             </div>
             </div>
-            <?php
-            if (isset($user_id)){
-            if ($blog_user_id != $user_id)
-            {
-            ?>
-            <div class=" container mt-2 border div-design-add-comment">
-                <h4>Add a Comment</h4>
-                <form action="create_comment.php" method="POST" id="replydata">
-
-                    <div class="mb-1 form-group ">
-                        
-                        <textarea type="comment_content" id="comment_content" name="comment_content" class="form-control" required ></textarea>
-                        <input type="hidden" value="<?php echo $user_id; ?>" id="user_id" name="user_id">
-                        <input type="hidden" value="<?php echo $blog_id; ?>" id="blog_id" name="blog_id">
-                        <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
-                    </div>
-                    <div>
-                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
-                    </div>
-                </form>
-            </div>
-            </div>
-            <?php
-                }
-            }
-            ?>
+            
 
 <?php
 
@@ -284,20 +263,6 @@ $conn->close();
     });
 });
 
-const url = new URL(window.location.href);
-  url.searchParams.delete("user_id");
-
-  document.getElementById("urlText").textContent = url.href;
-
-  document.getElementById("copyBtn").addEventListener("click", function () {
-    navigator.clipboard.writeText(url.href)
-      .then(() => {
-        alert("URL copied to clipboard!");
-      })
-      .catch(err => {
-        console.error("Failed to copy: ", err);
-      });
-  });
 
 </script>
 
