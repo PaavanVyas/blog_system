@@ -404,6 +404,13 @@ body{
     .img-blog-cover img{
         width: 100%;
     }
+    .div-design-add-comment h4{
+        font-size: 100%;
+        margin-top: 3%;
+    }
+    .div-design-viewblog-recommendation{
+        width: 100%;
+    }
 }
 
 
@@ -471,7 +478,7 @@ body{
 
 .div-design-add-comment textarea{
     height: 150px;
-    width: 90%;
+    width: 100%;
     margin-bottom: 3%;
 }
 

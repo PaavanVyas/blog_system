@@ -124,30 +124,36 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
     </div>
 
     <?php if (isset($_SESSION["user_id_session"]) && $blog_user_id != $_SESSION["user_id_session"]) { ?>
-        <div class="div-design-viewblog-recommendation">
-            <h4>Other Blogs by <?php echo htmlspecialchars($username); ?></h4>
-            <?php
-            $recommend_stmt = $conn->prepare("SELECT blog_id, blog_title FROM blog_data WHERE blog_id != ? AND user_id = ? ORDER BY datecreated DESC");
-            $recommend_stmt->bind_param("ss", $blog_id, $blog_user_id);
-            $recommend_stmt->execute();
-            $result_recommend = $recommend_stmt->get_result();
+    <div class="div-design-viewblog-recommendation">
+        <h4>Other Blogs by <?php echo htmlspecialchars($username); ?></h4>
+        
+        <?php
+        $recommend_stmt = $conn->prepare("SELECT blog_id, blog_title FROM blog_data WHERE blog_id != ? AND user_id = ? ORDER BY datecreated DESC");
+        $recommend_stmt->bind_param("ss", $blog_id, $blog_user_id);
+        $recommend_stmt->execute();
+        $result_recommend = $recommend_stmt->get_result();
 
+        if ($result_recommend->num_rows > 0) { 
             while ($row_recommend = $result_recommend->fetch_assoc()) { ?>
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item border-success-subtle m-1">
                         <a class="link-danger link-underline-opacity-75-hover"
                            href="view_blog.php?blog_id=<?php echo $row_recommend['blog_id']; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>">
                             <p class="accordion-header accordian-text">
-                                <?php echo $row_recommend["blog_title"]; ?>
+                                <?php echo htmlspecialchars($row_recommend["blog_title"]); ?>
                             </p>
                         </a>
                     </div>
                 </div>
-            <?php }
+            <?php } 
+        } else { 
+            echo "<p>This user has posted only one blog</p>";
+        }
 
-            $recommend_stmt->close(); ?>
-        </div>
-    <?php } ?>
+        $recommend_stmt->close(); ?>
+    </div>
+<?php } ?>
+
 </div>
 
 <div class="container border div-design-comment">
@@ -169,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                         <input type="hidden" value="<?php echo $username; ?>" id="username" name="username">
                     </div>
                     <div>
-                        <center><input type="submit" value="Add Comment" class = "mb-2"></center>
+                        <center><input type="submit" value="Add Comment" class = "mb-2 overflow-hidden"></center>
                     </div>
                 </form>
             </div>
