@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                            class="btn btn-light border-primary mt-2">Edit</a>
                     </center>
                 <?php } ?>
-                <p>Posted on: <?php echo htmlspecialchars($datecreated); ?></p>
+                <b><p>Posted on: <?php echo htmlspecialchars($datecreated); ?></p></b>
             </div>
         </div>
     </div>
