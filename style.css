@@ -258,6 +258,7 @@ body{
     border-width: 5%; 
     border-color: black;
     background-color: #d2deea ;
+    
 }
 
 
@@ -338,7 +339,7 @@ body{
     }
     .div-design-viewblog-recommendation{
         height: auto;
-        width: 80%;
+        /* width: 80%; */
         margin-top:10%;
     }
     /* .card-body{
@@ -370,6 +371,11 @@ body{
         font-size:80%;
         color:black;
      }
+     .accordion-item
+    {
+        width: 200%;
+        overflow: hidden;
+    }
 
 }
 
@@ -382,6 +388,22 @@ body{
         width: 40%;
         margin-left:30%;
      }
+     .container {
+        display: block !important;
+    }
+
+    .div-main-viewblog, 
+    .div-design-viewblog-recommendation {
+        width: 100% !important;
+    }
+
+    .accordion-item
+    {
+        width: 400%;
+    }
+    .img-blog-cover img{
+        width: 100%;
+    }
 }
 
 
