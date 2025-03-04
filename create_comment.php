@@ -13,7 +13,6 @@ include './conn.php';
         if($conn->query($sql)===TRUE){
             echo "Comment created";
             header("Location: view_blog.php?blog_id=$blog_id&user_id=$user_id&username=$username");
-        
             exit();
         }
         else{

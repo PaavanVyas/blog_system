@@ -16,7 +16,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $reply_id = generateReplyID($conn); 
     $date_created = date("Y-m-d");
 
-    // Fetch blog_id, user_id, and username from POST
     $blog_id = $_POST['blog_id'];  
     $user_id = $_POST['user_id'];
     $username = $_POST['username'];

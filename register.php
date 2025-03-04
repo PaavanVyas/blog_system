@@ -30,9 +30,9 @@ if ($_FILES["image"]["size"] > 2000000) {
 }
 
 // Allow only certain file formats
-$allowed_formats = ["jpg", "jpeg", "png", "gif"];
+$allowed_formats = ["jpg", "jpeg", "png"];
 if (!in_array($imageFileType, $allowed_formats)) {
-    die("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+    die("Sorry, only JPG, JPEG & PNG files are allowed.");
     $uploadOk = 0;
 }
 
