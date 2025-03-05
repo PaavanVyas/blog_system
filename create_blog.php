@@ -38,13 +38,13 @@
         />
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript Loaded!");
+    console.log(" JavaScript Loaded!");
 
     const textarea = document.getElementById("blog_content");
     const uploadImage = document.getElementById("uploadImage");
 
     if (!textarea || !uploadImage) {
-        console.error("❌ Textarea or file input not found.");
+        console.error(" Textarea or file input not found.");
         return;
     }
 
@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("form").appendChild(uploadedImagesField);
 
     uploadImage.addEventListener("change", function (event) {
-        console.log("📂 File input changed!");
+        console.log(" File input changed!");
 
         const files = event.target.files;
-        console.log("📂 Selected Files:", files.length);
+        console.log("Selected Files:", files.length);
 
         if (!files.length) return;
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log("✅ Server Response:", data);
+            console.log(" Server Response:", data);
             if (data.success && data.images.length > 0) {
                 data.images.forEach((img, index) => {
                     const placeholder = `[img${uploadedImages.length}]`;
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("❌ Image upload failed: " + (data.error || "Unknown error"));
             }
         })
-        .catch(error => console.error("⚠️ Fetch Error:", error));
+        .catch(error => console.error("Fetch Error:", error));
     });
 });
 </script>
