@@ -1,5 +1,12 @@
 <?php
-session_start();
+session_start(); 
+
+// if (!isset($_SESSION['logged_in'])) { 
+//     header("Location: login_user.php");
+//     exit();
+// }
+
+
 include './conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
@@ -111,13 +118,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['blog_id'])) {
                         echo $content;
                     ?>
                 </p>
+            <?php
+                if (isset($user_id)){
+            if ($blog_user_id != $user_id)
+            {
+            ?>
                 <center><a href="display_blog.php?user_id=<?php echo $user_id; ?>" class="btn btn-light border-primary">Go back</a></center>
                 <?php if (isset($_SESSION["user_id_session"]) && $blog_user_id == $_SESSION["user_id_session"]) { ?>
                     <center>
                         <a href="edit_blog.php?blog_id=<?php echo $blog_id; ?>&user_id=<?php echo $user_id; ?>&username=<?php echo urlencode($username); ?>" 
                            class="btn btn-light border-primary mt-2">Edit</a>
                     </center>
-                <?php } ?>
+                <?php }
+            }
+            } ?>
                 <b><p>Posted on: <?php echo htmlspecialchars($datecreated); ?></p></b>
             </div>
         </div>
