@@ -71,7 +71,7 @@
     </div>
   </div>
 </nav>
-    <div class="div-design-register container">
+    <div class="div-design-register mt-5 container">
     <form action="login.php" method="POST" id="myForm">
         <div class="mb-1 form-group" style="margin-top:8%;">
             <label class="form-label position-relative" for="email"><b>Username or Email:</b></label>
