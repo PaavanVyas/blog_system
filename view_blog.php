@@ -271,7 +271,6 @@ $conn->close();
         let btn = $(this); 
         let repliesDiv = btn.next(".display_replies");
         
-        console.log(repliesDiv); // Debugging
 
         if (btn.text().trim() === "View Reply") {
             repliesDiv.removeAttr("hidden");
@@ -284,7 +283,6 @@ $conn->close();
             throw new Error("Unexpected button text: " + btn.text().trim());
         }
 
-        console.log("Toggled visibility of replies.");
     });
 });
 
