@@ -107,7 +107,7 @@ if(isset($_GET['email_exists'])) {
     <div class="img-register">
         <img src="./images/invennico_logo-removebg.PNG" alt="Invennico-Logo">
     </div>
-<div class="container div-design">
+<div class="container div-design mt-2">
     <form action="register.php" method="POST" name="registration" id="myForm" enctype="multipart/form-data">
     <div class="div-design-register">
     <div class="d-flex justify-content-between">
