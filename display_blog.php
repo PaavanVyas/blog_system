@@ -1,5 +1,9 @@
 <?php
-    session_start();
+    session_start();   
+    if (!isset($_SESSION['logged_in'])) { 
+        header("Location: login_user.php");
+        exit();
+    }
     include './conn.php';
     $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : '';
     ?>
