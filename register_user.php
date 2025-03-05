@@ -35,30 +35,40 @@
 <body>
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <div  class="img-navbar">
-    <a href="index.php?user_id=<?php echo $user_id; ?>">
-        <img src="./images/invennico_logo-removebg.PNG" alt="Retailer"></img>
+    <a class="navbar-brand" href="index.php?user_id=<?php echo htmlspecialchars($user_id); ?>">
+      <img src="./images/invennico_logo-removebg.PNG" alt="Retailer" style="height: 40px;">
     </a>
-    <a class="navbar-brand" href="display_blog.php?user_id=<?php echo $user_id; ?>">Blogs</a>
-    <a class="navbar-brand" href="display_my_blog.php?user_id=<?php echo $user_id; ?>">My Blogs</a>
-    <a class="navbar-brand" href="create_blog.php?user_id=<?php echo $user_id; ?>">Create New Blog</a>
-    <?php
-    session_start();
-    if(isset($_SESSION['user_id_session'])) { 
-        $user_id = $_SESSION['user_id_session'];
-    ?> 
-    <a class="navbar-brand" href="logout.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Logout</a>
-    <?php 
-    }
-    else{
-    ?>
-    <a class="navbar-brand" href="register_user.php?user_id=<?php echo $user_id; ?>">Register</a>
-    <a class="navbar-brand" href="login_user.php?user_id=<?php echo $user_id; ?>">Login</a>
-        
-    <?php }?>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="display_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="display_my_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">My Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="create_blog.php?user_id=<?php echo htmlspecialchars($user_id); ?>">Create New Blog</a>
+        </li>
+        <?php if(isset($_SESSION['user_id_session'])) { ?> 
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Logout</a>
+        </li>
+        <?php } else { ?>
+        <li class="nav-item">
+          <a class="nav-link" href="register_user.php">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login_user.php">Login</a>
+        </li>
+        <?php } ?>
+      </ul>
     </div>
-        </div>
-      </div>
+  </div>
 </nav>
 <?php
 if(isset($_GET['email_exists'])) {
@@ -95,9 +105,9 @@ if(isset($_GET['email_exists'])) {
         </script>
     <?php }?> 
     <div class="img-register">
-        <img src="./images/become-merhcant.PNG" alt="Retailer">
+        <img src="./images/invennico_logo-removebg.PNG" alt="Invennico-Logo">
     </div>
-<div class="container form-container div-design">
+<div class="container div-design">
     <form action="register.php" method="POST" name="registration" id="myForm" enctype="multipart/form-data">
     <div class="div-design-register">
     <div class="d-flex justify-content-between">
@@ -418,9 +428,8 @@ $(document).ready(function () {
     $("#myForm").submit(function (e) {
         e.preventDefault();  
 
-        let isValid = true;  // Flag to check if the form is valid
+        let isValid = true;  
 
-        // Form validation for each field
         let firstname = $("#firstname").val().trim();
         if (firstname.length < 3) {
             $("#firstnameError").text("Firstname must be at least 3 characters");
@@ -482,28 +491,24 @@ $(document).ready(function () {
             $('#country').removeClass("border-danger");
         }
 
-        // If all form fields are valid, proceed with username check via AJAX
+
         if (isValid) {
             let username = $("#username").val().trim();
-            
-            // AJAX request to check if username is available
+
             $.ajax({
-                url: "check_username.php",  // PHP file to check username
+                url: "check_username.php",  
                 type: "POST",
                 data: { username: username },
                 success: function(response) {
-                    // Debug: Log the full response to verify its structure
                     console.log("AJAX Response:", response);
 
-                    // Parse the JSON response properly
                     try {
-                        response = JSON.parse(response); // Ensure response is parsed as JSON
+                        response = JSON.parse(response);
                     } catch (error) {
                         console.log("Error parsing response:", error);
                         return;
                     }
 
-                    // Now, check if the 'exists' field is present in the response
                     if (response && response.exists !== undefined) {
                         if (response.exists === true) {
                             console.log("Username exists in the database");
@@ -512,7 +517,7 @@ $(document).ready(function () {
                             isValid = false;
                         } else if (response.exists === false) {
                             console.log("Username does not exist in the database");
-                            $("#usernameError").text("");  // Clear error message
+                            $("#usernameError").text("");  
                             $("#username").removeClass("border-danger");
                         }
                     } else {
@@ -520,7 +525,6 @@ $(document).ready(function () {
                         isValid = false;
                     }
 
-                    // After AJAX request is complete, check if the form is valid
                     if (isValid === true) {
                         // Submit the form
                         $("#myForm").off("submit").submit();  // Submit the form
